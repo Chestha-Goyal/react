@@ -13,26 +13,41 @@ export default function TextForm(props) {
     setText(newText)
     // setText("You Have Clicked")
   }
+  const handleLowClick = ()=>{
+    console.log("Lowcase clicked" + text);
+    let newText = text.toLowerCase();
+    setText(newText)
+  }
   const handleOnChange = (event)=>{
     console.log("change");
     setText(event.target.value)
   }
 
-  const [text, setText] = useState('Enter text here');
+  const [text, setText] = useState('');
   // text hai jo text me text area me enter text here ki default value aa jye
   // text = "ajhsvba" wrong way to change state asa update nhi kr skte ham 'state' ko
   // hme updation function use krna pdga
   // setText("afsdgfascfhga"); correct way to change state
   // value change ho jygi text isko as a funstion hi call krna pdgha
   return (
-    <div>
+    <>
+    <div className="container">
       {/* <h1>{props.heading} - {text}</h1> */}
       <h1>{props.heading}</h1>
       <div class="mb-3">
         {/*  <label for="myBox" class="form-label">Example textarea</label> */}
         <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
       </div>
-      <button className="btn btn-primary" onClick={handleUpClick}>Change to Uppercase</button>
+      <button className="btn btn-primary mx-1" onClick={handleUpClick}>Change to Uppercase</button>
+      <button className="btn btn-primary mx-1" onClick={handleLowClick}>Change to Lowercase</button>
     </div>
+    <div className="container">
+      <h3>Summary</h3>
+      <p><b>{text.split(" ").length} words and {text.length} characters</b></p>
+      <p>{0.008 * text.split(" ").length} Minutes to read</p>
+      <h4><u>Preview</u></h4>
+      <p>{text}</p>
+    </div>
+    </>
   )
 }

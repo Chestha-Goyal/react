@@ -8,14 +8,18 @@ import React, { useState } from 'react'
 
 export default function TextForm(props) {
   const handleUpClick = ()=>{
-    console.log("Uppercase clicked" + text);
+    // console.log("Uppercase clicked" + text);
     let newText = text.toUpperCase();
     setText(newText)
     // setText("You Have Clicked")
   }
   const handleLowClick = ()=>{
-    console.log("Lowcase clicked" + text);
+    // console.log("Lowcase clicked" + text);
     let newText = text.toLowerCase();
+    setText(newText)
+  }
+  const handleClearClick = (event)=>{
+    let newText = '';
     setText(newText)
   }
   const handleOnChange = (event)=>{
@@ -40,6 +44,7 @@ export default function TextForm(props) {
       </div>
       <button className="btn btn-primary mx-1" onClick={handleUpClick}>Change to Uppercase</button>
       <button className="btn btn-primary mx-1" onClick={handleLowClick}>Change to Lowercase</button>
+      <button className="btn btn-primary mx-1" onClick={handleClearClick}>Clear Text</button>
     </div>
     <div className="container">
       <h3>Summary</h3>

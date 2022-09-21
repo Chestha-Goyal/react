@@ -27,6 +27,14 @@ export default function TextForm(props) {
     setText(event.target.value)
   }
 
+  const handleCopy = () => {
+    console.log("I am copy");
+    var text = document.getElementById("exampleFormControlTextarea1");
+    text.select();
+    text.setSelectionRange(0, 9999);
+    navigator.clipboard.writeText(text.value);
+  }
+
   const [text, setText] = useState('');
   // text hai jo text me text area me enter text here ki default value aa jye
   // text = "ajhsvba" wrong way to change state asa update nhi kr skte ham 'state' ko

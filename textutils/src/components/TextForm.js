@@ -28,11 +28,22 @@ export default function TextForm(props) {
   }
 
   const handleCopy = () => {
-    console.log("I am copy");
-    var text = document.getElementById("exampleFormControlTextarea1");
+    // console.log("I am copy");
+    var text = document.getElementById("myBox");
     text.select();
-    text.setSelectionRange(0, 9999);
+    // iski need nhi hai jab ham selcet.text krte hai to pura text copy ho jata hai
+    // text.setSelectionRange(0, 9999);
+    // navigator interface le kr pura text ko copy kr hi diya hai
     navigator.clipboard.writeText(text.value);
+  }
+
+  // rjaxs use kiya hai ya ajax in javascript
+  const handleExtraSpaces = () =>{
+    // ik ya ik se zada spaces ha agar to split kr diya ha us text ko basically ik array bn jyga
+    // [ ] is se split ho jyga jitni bhi spaces hogi fr
+    let newText = text.split(/[ ]+/);
+    //  array bn jyga then is se john krke bs ik space kr dege
+    setText(newText.john(" "))
   }
 
   const [text, setText] = useState('');
@@ -53,6 +64,8 @@ export default function TextForm(props) {
       <button className="btn btn-primary mx-1" onClick={handleUpClick}>Change to Uppercase</button>
       <button className="btn btn-primary mx-1" onClick={handleLowClick}>Change to Lowercase</button>
       <button className="btn btn-primary mx-1" onClick={handleClearClick}>Clear Text</button>
+      <button className="btn btn-primary mx-1" onClick={handleCopy}>Copy Text</button>
+      <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
     </div>
     <div className="container">
       <h3>Summary</h3>

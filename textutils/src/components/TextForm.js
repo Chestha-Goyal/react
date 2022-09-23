@@ -12,15 +12,20 @@ export default function TextForm(props) {
     let newText = text.toUpperCase();
     setText(newText)
     // setText("You Have Clicked")
+    props.showAlert("Converted to UpperCase", "success");
   }
   const handleLowClick = ()=>{
     // console.log("Lowcase clicked" + text);
     let newText = text.toLowerCase();
     setText(newText)
+    props.showAlert("Converted to LowrCase", "success");
+
   }
   const handleClearClick = (event)=>{
     let newText = '';
     setText(newText)
+    props.showAlert("Text Cleared!", "success");
+
   }
   const handleOnChange = (event)=>{
     console.log("change");
@@ -35,6 +40,8 @@ export default function TextForm(props) {
     // text.setSelectionRange(0, 9999);
     // navigator interface le kr pura text ko copy kr hi diya hai
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Copy to clipboard!", "success");
+
   }
 
   // rjaxs use kiya hai ya ajax in javascript
@@ -43,7 +50,8 @@ export default function TextForm(props) {
     // [ ] is se split ho jyga jitni bhi spaces hogi fr
     let newText = text.split(/[ ]+/);
     //  array bn jyga then is se john krke bs ik space kr dege
-    setText(newText.john(" "))
+    setText(newText.john(" "));
+    props.showAlert("Extra space removed!", "success");
   }
 
   const [text, setText] = useState('');

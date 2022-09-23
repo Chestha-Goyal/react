@@ -21,18 +21,32 @@ function App() {
       msg: message,
       type: type
      })
+     setTimeout( () => {
+      setAlert(null);
+     }, 1500);
   }
 
   const toggleMode = () =>{
     if(mode === 'light'){
     setMode('dark');
     document.body.style.backgroundColor = '#042743';
-    setAlert("Dark mode has been enabled", "success");
+    showAlert("Dark mode has been enabled", "success");
+    document.title = 'TextUtils - Dark Mode';
+    // to attract public 
+    // setInterval(() => {
+    // document.title = 'TextUtils is amazing Mode';
+    // }, 2000);
+    // setInterval(() => {
+    // document.title = 'TextUtils now';
+    // }, 1500);
     }
+    
     else{
       setMode('light');
       document.body.style.backgroundColor = 'white';
-      setAlert("Light mode has been enabled", "success");
+      showAlert("Light mode has been enabled", "success");
+      document.title = 'TextUtils - Light Mode';
+
     }
   }
   // setMode = 'light' directly asa nhi kr skte kyuki yeah ik state hai ham statevariable ko directly asa use nhi kr skte
@@ -48,7 +62,7 @@ function App() {
     {/* toggleMode ik function higa jo navbar me jyga actual me uoer hoga yeah */}
     <Alert alert={alert}/>
     <div className="container my-3">
-      <TextForm heading="Enter the text" mode={mode}/>
+      <TextForm  showAlert={showAlert} heading="Enter the text" mode={mode}/>
       {/* <About/> */}
     </div>
 

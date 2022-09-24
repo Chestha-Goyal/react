@@ -1,17 +1,18 @@
 // import { useState } from 'react';
-import './App.css';
-import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
+import About from './components/About';
 import React, { useState } from 'react';
 import Alert from './components/Alert';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  // Link
 } from "react-router-dom";
 
+// download both npm install react-router-dom
+// npm install react-router-dom@5.2.0
 function App() {
   //state variable it tells whether the darkmode is enabled or not 
   const [mode, setMode] = useState('light');
@@ -70,10 +71,13 @@ function App() {
     <Alert alert={alert}/>
     <div className="container my-3">
     <Switch>
-          <Route path="/about">
+       {/* /users --> Component 1
+        /users/home --> Component 2 */}
+          {/* exact likhna pdga eaxct match krne ke liye wrna bho partial match krta hai */}
+          <Route exact path="/about">
             <About />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <TextForm  showAlert={showAlert} heading="Enter the text" mode={mode}/>
           </Route>
     </Switch>

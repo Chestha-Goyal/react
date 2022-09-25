@@ -70,17 +70,17 @@ export default function TextForm(props) {
         <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'grey':'white', color: props.mode==='dark'?'white':'#042743'}} id="myBox" rows="8"></textarea>
         {/* ik curly base kyuki javascriot likhni and ik object ka */}
       </div>
-      <button className="btn btn-primary mx-1" onClick={handleUpClick}>Change to Uppercase</button>
-      <button className="btn btn-primary mx-1" onClick={handleLowClick}>Change to Lowercase</button>
-      <button className="btn btn-primary mx-1" onClick={handleClearClick}>Clear Text</button>
-      <button className="btn btn-primary mx-1" onClick={handleCopy}>Copy Text</button>
-      <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+      <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>Change to Uppercase</button>
+      <button className="btn btn-primary mx-1 my-1" onClick={handleLowClick}>Change to Lowercase</button>
+      <button className="btn btn-primary mx-1 my-1" onClick={handleClearClick}>Clear Text</button>
+      <button className="btn btn-primary mx-1 my-1" onClick={handleCopy}>Copy Text</button>
+      <button className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
     </div>
     <div className="container my-3" style={{color: props.mode==='dark'?'white':'#042743'}}>
       <h3>Summary</h3>
       {/* filter ik function leta hai jo tabhi work krge jab bho true dega mtlb tabhi bho array me rhga */}
-      {/* filter ke andr agar function nhi pass krga tochlga nhi page hi load nhi hota */}
-      <p><b>{text.split(" ").length} words and {text.length} characters</b></p>
+      {/* filter ke andr agar function nhi pass krga tochlga nhi page hi load nhi */}
+      <p><b>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters</b></p>
       <p>{0.008 * text.split(" ").length} Minutes to read</p>
       <h4><u>Preview</u></h4>
       <p>{text.length>0?text:"Enter something to preview it"}</p>

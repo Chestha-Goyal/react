@@ -75,13 +75,13 @@ function App() {
        {/* /users --> Component 1
         /users/home --> Component 2 */}
           {/* exact likhna pdga eaxct match krne ke liye wrna bho partial match krta hai */}
-          
+          <Route exact path="/about">
+            <About mode={mode}/>
+          </Route>
           <Route exact path="/">
             <TextForm  showAlert={showAlert} heading="Enter the text" mode={mode}/>
           </Route>
-          <Route exact path="/about">
-            <About />
-          </Route>
+          
     </Switch>
       {/* <About/> */}
     </div>

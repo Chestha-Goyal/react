@@ -28,12 +28,12 @@ export default function TextForm(props) {
 
   }
   const handleOnChange = (event)=>{
-    console.log("change");
+    // console.log("change");
     setText(event.target.value)
   }
 
   const handleCopy = () => {
-    console.log("I am copy");
+    // console.log("I am copy");
     var text = document.getElementById("myBox");
     text.select();
     // iski need nhi hai jab ham selcet.text krte hai to pura text copy ho jata hai
@@ -82,7 +82,8 @@ export default function TextForm(props) {
       <h3>Summary</h3>
       {/* filter ik function leta hai jo tabhi work krge jab bho true dega mtlb tabhi bho array me rhga */}
       {/* filter ke andr agar function nhi pass krga tochlga nhi page hi load nhi */}
-      <p><b>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters</b></p>
+      <p><b>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} characters</b></p>
+      {/* \s  mtlb kisi bhi trah ki white space icluding new lines*/}
       <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes to read</p>
       <h4><u>Preview</u></h4>
       <p>{text.length>0?text:"Nothing to preview."}</p>

@@ -28,6 +28,16 @@ export default function Navbar(props) {
                             <a className="nav-link" href="/about">{props.aboutText}</a>
                         </li>
                     </ul>
+                    <div className="d-flex">
+                        <div className="bg-primary rounded mx-2" onClick={()=>{props.toggleMode('primary')}} style={{height: '25px', width: '25px', cursor: 'pointer'}}></div>
+                        <div className="bg-danger rounded mx-2" onClick={()=>{props.toggleMode('danger')}} style={{height: '25px', width: '25px', cursor: 'pointer'}}></div>
+                        <div className="bg-success rounded mx-2" onClick={()=>{props.toggleMode('success')}} style={{height: '25px', width: '25px', cursor: 'pointer'}}></div>
+                        <div className="bg-warning rounded mx-2" onClick={()=>{props.toggleMode('warning')}} style={{height: '25px', width: '25px', cursor: 'pointer'}}></div>
+                        <div className="bg-dark rounded mx-2" onClick={()=>{props.toggleMode('dark')}} style={{height: '25px', width: '25px', cursor: 'pointer'}}></div>
+                        <div className="bg-light rounded mx-2" onClick={()=>{props.toggleMode('light')}} style={{height: '25px', width: '25px', cursor: 'pointer'}}></div>
+                            {/* onclick ko function chiye hota hai function call nhi chiye hoti */}
+
+                    </div>
                     {/* <form className="d-flex">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                         // agar koi bhi tag close nhi ho rha hoga to error dega to fr bho '/' is se bnd krna pdga
@@ -36,14 +46,14 @@ export default function Navbar(props) {
                     </form> */}
                     {/* ternonary operator
                     javascript bnya backtick lgyi */}
-                    <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>  
+                    {/* <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>   */}
                     {/* divide and conqure
                     template leteral then puri string bn gyi jo backtrick ke andr hai
                     jab ham backtrik use krte hai to $ lga kr koi bhi variable use kr skte hai(${props.mode==='light'?'dark':'light'})
                     variable ka andr ternoray operator ik agar dark hai to light and light hai to dark */}
-                        <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-                        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">DarkMode</label>
-                    </div>
+                        {/* <input className="form-check-input" onClick={()=>{props.toggleMode(null)}} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+                        <label className="form-check-label" htmlFor="flexSwitchCheckDefault"> Toggle DarkMode</label>
+                    </div> */}
                 </div>
             </div>
         </nav>

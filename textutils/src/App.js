@@ -1,15 +1,16 @@
 // import { useState } from 'react';
+import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
-// import About from './components/About';
+import About from './components/About';
 import React, { useState } from 'react';
 import Alert from './components/Alert';
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   Link
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  // Link
+} from "react-router-dom";
 
 // download both npm install react-router-dom
 // npm install react-router-dom@5.2.0
@@ -65,25 +66,26 @@ function App() {
        {/* ham props pass kr rhe hai
        props are read only  yeah text({props.title}) change ho skta hai bs  
        props are just property isme ham khud components bna kr khud properties dete hai*/}
-    {/* <Router> */}
+    <Router>
     <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
     {/* toggleMode ik function higa jo navbar me jyga actual me uoer hoga yeah */}
     <Alert alert={alert}/>
     <div className="container my-3">
-    {/* <Switch> */}
+    <Switch>
        {/* /users --> Component 1
         /users/home --> Component 2 */}
           {/* exact likhna pdga eaxct match krne ke liye wrna bho partial match krta hai */}
-          {/* <Route exact path="/about">
+          
+          <Route exact path="/">
+            <TextForm  showAlert={showAlert} heading="Enter the text" mode={mode}/>
+          </Route>
+          <Route exact path="/about">
             <About />
           </Route>
-          <Route exact path="/"> */}
-            <TextForm  showAlert={showAlert} heading="Enter the text" mode={mode}/>
-          {/* </Route>
-    </Switch> */}
+    </Switch>
       {/* <About/> */}
     </div>
-    {/* </Router> */}
+    </Router>
     
     </> 
   );

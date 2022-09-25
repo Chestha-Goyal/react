@@ -42,7 +42,6 @@ export default function TextForm(props) {
     navigator.clipboard.writeText(text.value);
     document.getSelection().removeAllRanges();
     props.showAlert("Copy to clipboard!", "success");
-
   }
 
   // rjaxs use kiya hai ya ajax in javascript

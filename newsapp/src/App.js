@@ -3,7 +3,6 @@ import './App.css';
 import React, { Component } from 'react'
 import Navbar from './components/Navbar';
 import News from './components/News';
-import NewsItem from './components/NewsItem';
 
 // function base me directlty return krte hai and class based me render me return krte hai
 
@@ -14,7 +13,6 @@ export default class App extends Component {
       <div>
         <Navbar/>
         <News/>
-        <NewsItem/>
       </div>
     )
   }

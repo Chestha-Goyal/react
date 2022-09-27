@@ -17,30 +17,43 @@ export class News extends Component {
 // async function apni body ke andr kuch function ke resolve hona ka await kr skta hai
 async componentDidMount(){
   // console.log("cdm");
-  let url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=c4ba04d1a84e4bae9c49f950721a3ab1&page=1"
+  let url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=c4ba04d1a84e4bae9c49f950721a3ab1&page=1pageSize=18"
   let data = await fetch(url);
   let parsedData = await data.json()
   console.log(parsedData);
-  this.setState({articles: parsedData.articles})
+  this.setState({articles: parsedData.articles, totalArticles: parsedData.totalResults})
  }
 
 handlePrevClick =  async ()=>{
-  console.log("Previous") 
- }
-
- handleNextClick =  async()=>{
-  console.log("Next")
-
-  let url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=c4ba04d1a84e4bae9c49f950721a3ab1&page=1"
+  console.log("Previous"); 
+  let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=c4ba04d1a84e4bae9c49f950721a3ab1&page=${this.state.page - 1}&pageSize=18`;
   let data = await fetch(url);
   let parsedData = await data.json()
   console.log(parsedData);
-  this.setState({articles: parsedData.articles})
-
+  // this.setState({articles: parsedData.articles})
   this.setState({
-    page: this.state.page + 1,
+    page: this.state.page - 1,
+    articles: parsedData.articles
   })
  }
+
+ handleNextClick =  async()=>{
+  console.log("Next");
+  // total no. of pages
+  if(this.state.page + 1 > Math.ceil(this.state.totalResults / 18)) {
+  }
+  else{
+  let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=c4ba04d1a84e4bae9c49f950721a3ab1&page=${this.state.page + 1}&pageSize=18`;
+  let data = await fetch(url);
+  let parsedData = await data.json()
+  console.log(parsedData);
+  // this.setState({articles: parsedData.articles})
+  this.setState({
+    page: this.state.page + 1,
+    articles: parsedData.articles
+  })
+ }
+}
 
   render() {
     console.log("render")

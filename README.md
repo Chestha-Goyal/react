@@ -1,1 +1,1 @@
-Some basics of react and project made using react. 
+Here are some basics of react and also project made using react. 
